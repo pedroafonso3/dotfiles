@@ -1,5 +1,5 @@
 local M = {}
- 
+
 table.insert(M, {
   "williamboman/mason.nvim",
   opts = {
@@ -22,9 +22,8 @@ table.insert(M, {
 table.insert(M, {
   "williamboman/mason-lspconfig.nvim",
   config = function()
-    local lsp_handlers = require("lsp").handlers
     require("mason-lspconfig").setup()
-    require("mason-lspconfig").setup_handlers(lsp_handlers)
+    require("mason-lspconfig").setup_handlers(require("lsp-handlers"))
   end,
 })
 table.insert(M, {
@@ -42,8 +41,12 @@ table.insert(M, {
   "jay-babu/mason-nvim-dap.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    require("mason-nvim-dap").setup()
+    require("mason-nvim-dap").setup({
+      ensure_installed = { "python" },
+      handlers = require("dap-handlers"),
+    })
   end,
 })
- 
+
 return M
+
