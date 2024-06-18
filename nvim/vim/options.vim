@@ -6,9 +6,7 @@ set updatetime=500
 
 set noswapfile
 
-if !empty(provider#clipboard#Executable())
-  set clipboard+=unnamedplus
-endif
+set clipboard+=unnamedplus
 
 set wildignore+=*.o,*.obj,*.dylib,*.bin,*.dll,*.exe
 set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
