@@ -1,5 +1,5 @@
 local M = {}
- 
+
 table.insert(M, {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -24,8 +24,17 @@ table.insert(M, {
         inc_rename = false,
         lsp_doc_border = true,
       },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+          },
+          opts = { skip = true },
+        },
+      },
     })
-  end
+  end,
 })
- 
+
 return M
