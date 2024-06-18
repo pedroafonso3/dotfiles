@@ -1,7 +1,7 @@
 local function bootstrap()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
+    vim.fn.system({
       "git",
       "clone",
       "--filter=blob:none",
@@ -13,9 +13,9 @@ local function bootstrap()
   vim.opt.rtp:prepend(lazypath)
 end
 
-local function initialize(plugin_manifest)
-  require("lazy").setup(plugin_manifest)
+local function initialize()
+  require("lazy").setup("plugins.plugin_manifest")
 end
 
 bootstrap()
-initialize(require("plugins.plugin_manifest"))
+initialize()
