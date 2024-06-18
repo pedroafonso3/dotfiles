@@ -1,5 +1,5 @@
 local M = {}
- 
+
 table.insert(M, "nvim-telescope/telescope-ui-select.nvim")
 table.insert(M, {
   "nvim-telescope/telescope.nvim",
@@ -7,17 +7,17 @@ table.insert(M, {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local telescope = require("telescope")
- 
-    telescope.setup {
+
+    telescope.setup({
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown()
-        }
-      }
-    }
+          require("telescope.themes").get_dropdown(),
+        },
+      },
+    })
     telescope.load_extension("ui-select")
     telescope.load_extension("noice")
-  end
+  end,
 })
- 
+
 return M
