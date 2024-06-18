@@ -87,7 +87,6 @@ set formatoptions+=mM
 
 set tildeop
 
-set synmaxcol=250
 set nostartofline
 
 set termguicolors
